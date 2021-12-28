@@ -28,13 +28,15 @@ except:
         'PORT': '',
         'POLICY_DIR': '',
         'PAYMENT_SKEY': '',
-        'PAYMENT_VKEY': ''
+        'PAYMENT_VKEY': '',
+        'NETWORK': ''
     }
 
 # Cardano utilities
 POLICY_DIR = config.get('POLICY_DIR')
 PAYMENT_SKEY = config.get('PAYMENT_SKEY')
 PAYMENT_VKEY = config.get('PAYMENT_VKEY')
+NETWORK = config.get('NETWORK')
 
 # Luckyfive API key used to generate the random numbers
 LUCKYFIVE_API_KEY = config.get('LUCKYFIVE_API_KEY')

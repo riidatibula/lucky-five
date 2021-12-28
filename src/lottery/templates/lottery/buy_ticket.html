@@ -55,13 +55,13 @@
                             termsCheck: termsCheck
                         },
                         success: function (response) {
-                            console.log(response)
                             if (response.status_code == 200) {
                                 $cardBody.empty();
+                                console.log(response)
 
-                                let paymentAddress = '<div class="mb-3" style="background-color: gray; padding: 20px; color: white;">addr1q8jhm8jyrg90k257ydac04cydql3g2d3xgew9aklr03mwq93t2u48rlllwv7utx4wte3p89ykywn0ykjz49w94yg7uxq4d4jav';
+                                let paymentAddress = '<div class="mb-4"><h5>Please send 5 ADA to this address:</h5><div style="background-color: gray; padding: 20px; color: white; border-radius:10px;">' + response.payment_address + '</div>';
 
-                                let luckfive = '<div class="mb-3"><label for="luckyFive" class="form-label">Lucky Five</label><input type="number" class="form-control" id="luckyFive" aria-describedby="help"><div id="help" class="form-text">Please input your lucky-five number</div></div>';
+                                let luckfive = '<div class="mb-3"><label for="luckyFive" class="form-label h5">Your LuckyFive number:</label><input type="number" class="form-control" id="luckyFive"></div>';
 
                                 let button = '<div class="continue-button" align="end"><button class="btn btn-primary">Continue</button></div>';
 

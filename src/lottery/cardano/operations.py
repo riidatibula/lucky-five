@@ -1,6 +1,7 @@
 import os, subprocess
 
 from datetime import datetime, timezone
+from django.conf import settings
 
 
 def generate_minting_policy(policy_path):
@@ -51,3 +52,23 @@ def generate_minting_policy(policy_path):
     f.close()
 
     return policyID
+
+
+def generate_payment_address():
+    try:
+        gen_addres = ('cardano-cli address build '
+            '--verification-key-file {} {}').format(
+            settings.PAYMENT_VKEY, settings.NETWORK).split(' ')
+        output = subprocess.run(
+            gen_addres,
+            capture_output=True,
+            text=True)
+
+        if output.returncode != 0:
+            raise Exception(output.stderr)
+        else:
+            return output.stdout.strip()
+    except Exception as e:
+        print(e)
+
+    return 'Error generating payment address. Please try again later.'

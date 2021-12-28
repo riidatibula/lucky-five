@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
 
+from lottery.cardano.operations import (
+    generate_payment_address)
+
 
 class AcceptBuyTicketNotice(View):
 
@@ -14,12 +17,21 @@ class AcceptBuyTicketNotice(View):
                 if not (wallet_check == 'true' and terms_check == 'true'):
                     raise Exception('You must accept all terms and conditions.')
 
-                return JsonResponse(data = {'data': 'yey', 'status_code': 200})
+                data = {
+                    'payment_address': generate_payment_address(),
+                    'status_code': 200
+                }
+
+                return JsonResponse(data)
 
             raise Exception('Unable to process request.')
 
         except Exception as e:
-            return JsonResponse(data = {'message': str(e), 'status_code': 500})
+            data = {
+                'message': str(e),
+                'status_code': 500
+            }
+            return JsonResponse(data)
 
 
 class BuyTicketView(View):

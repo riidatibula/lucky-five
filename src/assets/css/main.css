@@ -17,3 +17,7 @@
 .buy-ticket-container {
     max-width: 600px;
 }
+
+.card-body {
+    padding: 20px;
+}
