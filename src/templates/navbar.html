@@ -1,10 +1,12 @@
-<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+{% load static %}
+
+<nav class="navbar fixed-top navbar-dark navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'lottery:home' %}">
             <img 
-                src="/docs/5.1/assets/brand/bootstrap-logo.svg"
-                alt="" width="30" height="24" 
-                class="d-inline-block align-text-top"
+                src="{% static 'images/LuckyFive.png' %}"
+                alt="" width="35" height="35"
+                class="d-inline-block align-text-center"
             >
             LuckyFive
         </a>
