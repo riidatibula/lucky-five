@@ -4,7 +4,26 @@
 {% block content %}
     <div class="container-fluid" align="center">
         {% if error %}
-            <h4>{{ error }}</h4>
+            <h1><i class="bi bi-emoji-frown"></i></h1>
+            <h2>{{ error }}</h2>
+            <div class="row mt-5">
+                <div class="col">
+                    <p>
+                        <i class="bi bi-arrow-left"></i>
+                        <a href="{% url 'lottery:lottery-list' %}">
+                            Previous Lotteries
+                        </a>
+                    </p>
+                </div>
+                <div class="col">
+                    <p>
+                        <a href="{% url 'lottery:schedule' %}">
+                            Next Lottery Schedule
+                        </a>
+                        <i class="bi bi-arrow-right"></i>
+                    </p>
+                </div>
+            </div>
         {% elif object_list %}
             <div class="table-responsive bets-table">
                 <table class="table table-bordered table-sm table-hover caption-top">

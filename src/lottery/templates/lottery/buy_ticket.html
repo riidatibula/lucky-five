@@ -3,31 +3,40 @@
 
 {% block content %}
 
-    <div class="container-fluid buy-ticket-container mb-5" id="buyTicketContainer">
-        <div class="card">
-            <div class="card-body" id="cardBody">
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="walletCheck">
-                    <label class="form-check-label" for="walletCheck">
-                        I am not sending from an exchange. I am using a cardano
-                        native wallet that supports NFTs (e.g. Daedalus, Yoroi, Nami)
-                    </label>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="termsCheck">
-                    <label class="form-check-label" for="termsCheck">
-                        I have read and agreed to the <a href="#">terms and conditions</a>.
-                    </label>
-                </div>
-                <div id="alert"></div>
-                <div class="continue-button" align="end" id="acceptBuyTicketNotice">
-                    <button class="btn btn-primary">
-                        Continue
-                    </button>
+    {% if current_lottery %}
+        <div class="container-fluid buy-ticket-container mb-5" id="buyTicketContainer">
+            <div class="card">
+                <div class="card-body" id="cardBody">
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="walletCheck">
+                        <label class="form-check-label" for="walletCheck">
+                            I am not sending from an exchange. I am using a cardano
+                            native wallet that supports NFTs (e.g. Daedalus, Yoroi, Nami)
+                        </label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="termsCheck">
+                        <label class="form-check-label" for="termsCheck">
+                            I have read and agreed to the <a href="#">terms and conditions</a>.
+                        </label>
+                    </div>
+                    <div id="alert"></div>
+                    <div class="continue-button" align="end" id="acceptBuyTicketNotice">
+                        <button class="btn btn-primary">
+                            Continue
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        <div class="container-fluid" align="center">
+            <h1><i class="bi bi-emoji-frown"></i></h1>
+            <h2></i>No active lottery today.</h2>
+            <p>See <a href="{% url 'lottery:schedule' %}">lottery schedule</a> to see when
+            can you start buying tickets.</p>
+        </div>
+    {% endif %}
 
 {% endblock %}
 

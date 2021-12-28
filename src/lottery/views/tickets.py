@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
 
+from lottery.models import Lottery
 from lottery.cardano.operations import (
     generate_payment_address)
 
@@ -38,4 +39,9 @@ class BuyTicketView(View):
     template_name = 'lottery/buy_ticket.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {})
+        current_lottery = Lottery.get_current_lottery()
+
+        context = {
+            'current_lottery': current_lottery
+        }
+        return render(request, self.template_name, context)
