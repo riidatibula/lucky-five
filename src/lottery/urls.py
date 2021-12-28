@@ -6,6 +6,9 @@ from lottery.views.tickets import (
 from lottery.views.bets import BetsListView
 from lottery.views.lotteries import (
     LotteryListView, LotteryDetailView)
+from lottery.views.about import AboutView
+from lottery.views.schedule import ScheduleView
+from lottery.views.faq import FAQView
 
 app_name = 'lottery'
 
@@ -15,5 +18,8 @@ urlpatterns = [
     path('accept-buy-ticket-notice/', AcceptBuyTicketNotice.as_view(), name='accept-notice'),
     path('bets/', BetsListView.as_view(), name='bet-list'),
     path('lotteries/', LotteryListView.as_view(), name='lottery-list'),
-    path('lotteries/<int:pk>/', LotteryDetailView.as_view(), name='lottery-detail')
+    path('lotteries/<int:pk>/', LotteryDetailView.as_view(), name='lottery-detail'),
+    path('schedule/', ScheduleView.as_view(), name='schedule'),
+    path('faq/', FAQView.as_view(), name='faq'),
+    path('about/', AboutView.as_view(), name='about')
 ]

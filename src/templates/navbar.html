@@ -42,21 +42,21 @@
                 {% endif %}
 
                 {% if request.path == "/schedule/" %}
-                    <a class="nav-link active" href="#">Schedule</a>
+                    <a class="nav-link active" href="{% url 'lottery:schedule' %}">Schedule</a>
                 {% else %}
-                    <a class="nav-link" href="#">Schedule</a>
+                    <a class="nav-link" href="{% url 'lottery:schedule' %}">Schedule</a>
                 {% endif %}
                 
                 {% if request.path == "/faq/" %}
-                    <a class="nav-link active" href="#">FAQ</a>
+                    <a class="nav-link active" href="{% url 'lottery:faq' %}">FAQ</a>
                 {% else %}
-                    <a class="nav-link" href="#">FAQ</a>
+                    <a class="nav-link" href="{% url 'lottery:faq' %}">FAQ</a>
                 {% endif %}
 
                 {% if request.path == "/about/" %}
-                    <a class="nav-link active" href="#">About</a>
+                    <a class="nav-link active" href="{% url 'lottery:about' %}">About</a>
                 {% else %}
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{% url 'lottery:about' %}">About</a>
                 {% endif %}
             </div>
         </div>
