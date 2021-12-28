@@ -65,6 +65,9 @@ class Lottery(models.Model):
             draw_date__gte=now).last()
         return current
 
+    def is_ticket_sale_schedule():
+        pass
+
 
 class Bet(models.Model):
   	# The bettor's lucky-five number
