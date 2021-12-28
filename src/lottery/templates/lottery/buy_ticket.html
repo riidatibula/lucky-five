@@ -31,10 +31,17 @@
         </div>
     {% else %}
         <div class="container-fluid" align="center">
-            <h1><i class="bi bi-emoji-frown"></i></h1>
-            <h2></i>No active lottery today.</h2>
-            <p>See <a href="{% url 'lottery:schedule' %}">lottery schedule</a> to see when
-            can you start buying tickets.</p>
+            <div class="card error-card">
+                <div class="card-body">
+                    <h1><i class="bi bi-emoji-frown"></i></h1>
+                    <h2>No active lottery today.</h2>
+                    <p>
+                        You can't buy a ticket right now since there's no ongoing lottery.<br>
+                        Visit the <a href="{% url 'lottery:schedule' %}">lottery schedule page</a>
+                        to see when can you start buying tickets.
+                    </p>
+                </div>
+            </div>
         </div>
     {% endif %}
 

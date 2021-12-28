@@ -2,26 +2,25 @@
 {% load static %}
 
 {% block content %}
+
     <div class="container-fluid" align="center">
         {% if error %}
-            <h1><i class="bi bi-emoji-frown"></i></h1>
-            <h2>{{ error }}</h2>
-            <div class="row mt-5">
-                <div class="col">
-                    <p>
-                        <i class="bi bi-arrow-left"></i>
-                        <a href="{% url 'lottery:lottery-list' %}">
-                            Previous Lotteries
-                        </a>
-                    </p>
-                </div>
-                <div class="col">
-                    <p>
-                        <a href="{% url 'lottery:schedule' %}">
-                            Next Lottery Schedule
-                        </a>
-                        <i class="bi bi-arrow-right"></i>
-                    </p>
+            <div class="card error-card">
+                <div class="card-body">
+                    <h1><i class="bi bi-x-circle"></i></h1>
+                    {% if error == "No active lottery today." %}
+                        <h2>No Bets Found.</h2>
+                        <p>
+                            No bets found since there's no active
+                            lottery right now. <br> You can
+                            <a href="{% url 'lottery:lottery-list' %}">
+                            browse through the previous bets</a> or
+                            see the <a href="{% url 'lottery:schedule' %}">
+                            next lottery schedule</a>.
+                        </p>
+                    {% else %}
+                        <h2>{{ error }}</h2>
+                    {% endif %}
                 </div>
             </div>
         {% elif object_list %}
@@ -57,7 +56,8 @@
                 </table>
             </div>
         {% else %}
-            <h4>No bets found.</h4>
+            <h1><i class="bi bi-x-circle"></i></h1>
+            <h2>No bets found.</h2>
             <p class="text-muted">{{ lottery }}</p>
         {% endif %}
     </div>

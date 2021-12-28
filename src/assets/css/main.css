@@ -25,3 +25,7 @@
 .card-body {
     padding: 20px;
 }
+
+.error-card {
+    max-width: 800px;
+}

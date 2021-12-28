@@ -65,6 +65,6 @@ class BetsListView(ListView):
             return self.render_to_response(context)
 
         except Exception as e:
-            context = {'error': e}
+            context = {'error': str(e)}
 
         return render(request, self.template_name, context)
