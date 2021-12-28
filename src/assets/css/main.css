@@ -26,6 +26,6 @@
     padding: 20px;
 }
 
-.error-card {
+.error-card, .schedule-card {
     max-width: 800px;
 }
