@@ -28,9 +28,9 @@ class BetsListView(ListView):
         context = {}
 
         try:
+            lottery = None
             lottery_seq = self.request.GET.get(
                 'lottery')
-            lottery = Lottery.get_current_lottery()
 
             if lottery_seq:
                 if lottery_seq.isdigit():
@@ -38,6 +38,8 @@ class BetsListView(ListView):
                         Lottery, seq=int(lottery_seq))
                 else:
                     raise Exception('Opps. Lottery not found.')
+            else:
+                lottery = Lottery.get_current_lottery()
 
             if lottery is None:
                 raise Exception('No active lottery today.')

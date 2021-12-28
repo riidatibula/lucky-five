@@ -50,6 +50,12 @@
                 {% else %}
                     <a class="nav-link" href="#">FAQ</a>
                 {% endif %}
+
+                {% if request.path == "/about/" %}
+                    <a class="nav-link active" href="#">About</a>
+                {% else %}
+                    <a class="nav-link" href="#">About</a>
+                {% endif %}
             </div>
         </div>
     </div>
